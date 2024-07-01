@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - PILL TO PIXEL</title>
+    <link rel="icon" type="image/x-icon" href="images/PILL TO PIXEL.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+        background-image: url('https://thumbs.dreamstime.com/z/medical-wallpaper-seamles-pattern-background-seamless-vector-icons-ophthalmology-supplies-medications-eye-drops-75948448.jpg'); /* Replace 'path/to/your/image.jpg' with the actual path to your image file */
+        background-size: cover;
+        background-position: center;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        }
+    
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 40px;
+            background-color: rgb(253, 253, 253);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+    
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .button {
+            background-color: rgb(36, 83, 137);
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button {
+            background-color: rgb(202, 186, 107);
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buttons{
+            float:right;
+        }
+        h2{
+            text-align: center;
+        }
+        h1{
+            text-align: center;
+            color: rgb(36, 83, 137) ;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PILL TO PIXEL</h1>
+        <h2>Sign In</h2>
+        <form  name="signin"  method="post" action=" " onsubmit="validation()">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"required >
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+            <div class="buttons">
+                <input type="submit" id="submit" value="signin" class="button">
+            </div>
+        </form>
+    </div>
+    <script>
+        function validation(){
+            let name=document.getElementById("username").value;
+            let pwd=document.getElementById("password").value;
+            let con_pwd=document.getElementById("confirmPassword").value;
+        
+            if (name === "") {
+                alert("Username field cannot be empty");
+                return false;
+            } else if (!name.match(/^[A-Za-z]{6,15}$/)) {
+                alert("Username can contain only lower and uppercase alphabets between 6 to 15 characters");
+                return false;
+            }
+
+            if (pwd === "") {
+                alert("Password field cannot be empty");
+                return false;
+            } else if (!pwd.match(/^[A-Za-z0-9\-_\$@]{6,15}$/)) {
+                alert("Password must contain lower and uppercase alphabets, numbers and special characters");
+                return false;
+            }
+
+            if (con_pwd === "") {
+                alert("Confirm password field cannot be empty");
+                return false;
+            } else if (con_pwd !== pwd) {
+                alert("Confirm Password should match Password field");
+                return false;
+            }
+            document.signin.action = "login.html";
+
+            return true;
+        }
+        
+    </script>
+</body>
+</html>

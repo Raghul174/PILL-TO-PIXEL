@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Your Account - PILL TO PIXEL</title>
+    <link rel="icon" type="image/x-icon" href="images/PILL TO PIXEL.png">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background-image: url('https://www.freevector.com/uploads/vector/preview/30831/medicine_backgorund_Mesa_de_trabajo_1.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            height: 100vh;
+            margin: 20px 0; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .user-info-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 30px;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 400px;
+            margin: auto; 
+        }
+
+        .field-container {
+            display: block;
+            margin-bottom: 16px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 4px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            background-color: #04AA6D;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            padding: 12px;
+            border-radius: 4px;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        h1{
+            text-align: center;
+            color: rgb(36, 83, 137) ;
+        }
+    </style>
+</head>
+<body>
+    <div class="user-info-container">
+        <h1>PILL TO PIXEL</h1>
+        <h2>Create Your Account</h2>
+        <form name="login" id="user-info-form" action=""  method="POST" onsubmit="validation()">
+            <div class="field-container">
+                <label for="user-info-name">Full Name:</label>
+                <input type="text" id="user-info-name" name="name"  placeholder="Enter your full name" >
+            </div>
+            <div class="field-container">
+                <label for="user-info-pwd">Password:</label>
+                <input type="password" id="user-info-pwd" name="pwd"  placeholder="Enter your password" >
+            </div>
+            <div class="field-container">
+                <label for="user-info-conpwd">Confirm Password:</label>
+                <input type="password" id="user-info-conpwd" name="conpwd"  placeholder="Reenter your password here" >
+            </div>
+            <div class="field-container">
+                <label for="user-info-mno">Mobile number:</label>
+                <input type="text" id="user-info-mno" name="mno"  placeholder="Enter your mobile number" >
+            </div>
+            <div class="field-container">
+                <label for="user-info-email">Email Address:</label>
+                <input type="email" id="user-info-email" name="email"  placeholder="Enter your email address" >
+            </div>
+         
+            <div class="field-container">
+                <label for="gender">Gender:</label>
+               
+                <select name="gender" id="gender">
+                    <option value="" >-Select Gender-</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="field-container">
+                <label for="user-info-dob">Date of Birth:</label>
+                <input type="date" id="user-info-dob" name="dob" >
+            </div>
+          
+            <div class="field-container">
+                <label for="user-info-doorno">Door no:</label>
+                <input type="text" id="user-info-doorno" name="door" >
+            </div>
+           
+            <div class="field-container">
+                <label for="user-info-street">Street:</label>
+                <input type="text" id="user-info-street" name="Street" >
+            </div>
+           
+            <div class="field-container">
+                <label for="user-info-town">Town:</label>
+                <input type="text" id="user-info-town" name="town" >
+            </div>
+            <div class="field-container">
+                <label for="user-info-dist">District:</label>
+                <input type="text" id="user-info-dist" name="district" >
+            </div>
+            <div class="field-container">
+                <label for="user-info-state">State:</label>
+                <input type="text" id="user-info-state" name="state">
+            </div>
+         
+             <div class="buttons">
+                <input type="submit" id="submit" value="create an accounts"  class="button">
+            </div>
+        </form>
+        <p>Already have an account? <a href="resign.html">Login</a></p>
+    </div>
+    <script>
+        function validation() {
+            let name = document.getElementById("user-info-name").value;
+            if (name === "") {
+                alert("Name field cannot be empty");
+                return false;
+            }
+    
+            let pwd = document.getElementById("user-info-pwd").value;
+            if (pwd === "") {
+                alert("Password field cannot be empty");
+                return false;
+            } else if (!pwd.match(/^[A-Za-z0-9\-_\$@]{6,15}$/)) {
+                alert("Password must contain 6 to 15 characters including lower and uppercase alphabets, numbers, and special characters");
+                return false;
+            }
+    
+            let conpwd = document.getElementById("user-info-conpwd").value;
+            if (conpwd === "") {
+                alert("Confirm password field cannot be empty");
+                return false;
+            } else if (conpwd !== pwd) {
+                alert("Confirm Password should match Password field");
+                return false;
+            }
+    
+            let mno = document.getElementById("user-info-mno").value;
+            if (mno === "") {
+                alert("Mobile number field cannot be empty");
+                return false;
+            } else if (!mno.match(/^[0-9]{10}$/)) {
+                alert("Mobile number must contain 10 digits");
+                return false;
+            }
+    
+            let email = document.getElementById("user-info-email").value;
+            if (email === "") {
+                alert("Email field cannot be empty");
+                return false;
+            } else if (!email.match(/^[A-Za-z0-9_\.]+@[A-Za-z]+\.[A-Za-z]{2,5}$/)) {
+                alert("Invalid email");
+                return false;
+            }
+    
+            let gender = document.getElementById("gender").value;
+            if (gender === "") {
+                alert("Gender field cannot be empty");
+                return false;
+            }
+    
+            let dob = document.getElementById("user-info-dob").value;
+            if (dob === "") {
+                alert("Date of Birth field cannot be empty");
+                return false;
+            }
+    
+            let door = document.getElementById("user-info-doorno").value;
+            if (door === "") {
+                alert("Door number field cannot be empty");
+                return false;
+            }
+    
+            let street = document.getElementById("user-info-street").value;
+            if (street === "") {
+                alert("Street field cannot be empty");
+                return false;
+            }
+    
+            let town = document.getElementById("user-info-town").value;
+            if (town === "") {
+                alert("Town field cannot be empty");
+                return false;
+            }
+    
+            let district = document.getElementById("user-info-dist").value;
+            if (district === "") {
+                alert("District field cannot be empty");
+                return false;
+            }
+    
+            let state = document.getElementById("user-info-state").value;
+            if (state === "") {
+                alert("State field cannot be empty");
+                return false;
+            }
+    
+            // If all validations pass, set the action of the form and submit it
+            document.getElementById("user-info-form").action = "index.html";
+            return true; // Form will be submitted
+        }
+    </script>
+    
+</body>
+</html>
